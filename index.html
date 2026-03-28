@@ -22,7 +22,7 @@
   <div class="Opisation">
     <h2>Описание</h2>
 
-    <!-- Кнопка для открытия теста -->
+
 
 
 
@@ -57,13 +57,13 @@
     <button class="StartButton" onclick="openPopup()">Перейти к тестированию</button>
   </div>
 
-  <!-- Попап (модальное окно) -->
+
   <div id="popupOverlay" class="popup-overlay" onclick="closePopup()">
     <div class="popup-content" onclick="event.stopPropagation()">
       <button class="close-btn" onclick="closePopup()">✖</button>
 
 
-      <!-- Блок с вопросами (виден по умолчанию) -->
+   
       <div id="formBlock">
         <div class="Obshak">
           <div class="Obshak1">
@@ -147,6 +147,12 @@
   <img src="updatelog.jpg" alt="Солнечная Энергия">
   <div class="update">
     <ul>
+        <li>🔷v1.1 - 28.03.2026</li>  
+      <ul>
+        <li>Адаптативность под мобильные устройства</li>
+        <li>Исправлено отображение изображений во всех вкладках</li>
+        <li>Добавлено пояснение для отсутсвующих компонентов</li>
+      </ul>
       <li>🔷v1.0 - 27.03.2026</li>
       <ul>
         <li>Описание</li>
@@ -542,7 +548,7 @@ function Go() {
     let akkymprice1 = viborAkkym.price;
 
       if (sesType == "set") {
-        viborAkkym1 = "-";
+        viborAkkym1 = "Не нужен";
         akkymprice1 = 0;
       } else {
           viborAkkym1 = akkumData.akkym1.model;
@@ -561,7 +567,7 @@ function Go() {
           viborKontrl1 = kontrlData.contrl1.model;
       viborKontrl = kontrlData.contrl1;
     } else {
-      viborKontrl1 = "-";
+      viborKontrl1 = "Не нужен";
       kontrkprice1 = 0;
 
     }
