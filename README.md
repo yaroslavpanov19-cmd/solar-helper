@@ -1,1 +1,1 @@
-# solar-helper 🔷1.1
+# solar-helper 🔷v1.1
