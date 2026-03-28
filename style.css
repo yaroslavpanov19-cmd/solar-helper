@@ -236,7 +236,7 @@ li {
 .E>input {
   border: 2px solid;
   border-radius: 30px;
-  width: 220px;
+  width: 20%;
   height: 30px;
 }
 
@@ -250,7 +250,7 @@ li {
 .S>input {
   border: 2px solid;
   border-radius: 30px;
-  width: 220px;
+  width: 20%;
   height: 30px;
 }
 
@@ -258,7 +258,7 @@ li {
 text-align: center;
 }
 .Raschet>button {
-  width: 500px;
+  width: 50%;
   height: 50px;
   font-size: 40px;
   border: 2px solid;
