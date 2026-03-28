@@ -2,6 +2,18 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 768) {
+  .Obshak, .Obshak1 {
+    padding: 10px;
+  }
+  .radio-label {
+    font-size:14px;
+  }
+  button {
+    font-size:18px;
+    padding: 14px;
+  }
+}
 h1 {
   font-size: 50px;
   background-color: gray;
