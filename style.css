@@ -2,21 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 35px;
-  }
-  h2 {
-    font-size: 25px;
-  }
-  h3 {
-    font-size: 20px;
-  }
 
-  p {
-    font-size: 15px;
-  }
-}
 
 
 
@@ -321,4 +307,22 @@ text-align: center;
 
 .proektt>h4 {
   display: inline-block;
+}
+
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
