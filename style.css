@@ -330,11 +330,21 @@ text-align: center;
     font-size: 25px;
   }
 
+
+
+    .formBlock {
+    width: 100%
+  }
+
   .Obshak {
-    width: auto;
+    width: 100%;
   }
 
   .Obshak1 {
-    width: auto;
+    width: 100%;
+  }
+
+  .Raschet>button {
+    width: 50%;
   }
 }
