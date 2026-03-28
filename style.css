@@ -325,4 +325,16 @@ text-align: center;
   p {
     font-size: 15px;
   }
+  
+    li {
+    font-size: 25px;
+  }
+
+  .Obshak {
+    width: auto;
+  }
+
+  .Obshak1 {
+    width: auto;
+  }
 }
