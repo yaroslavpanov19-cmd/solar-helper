@@ -3,19 +3,22 @@ html {
 }
 
 h1 {
-  font-size: 100px;
+  font-size: 70px;
   background-color: gray;
   margin: 5px;
+    width: auto;
 }
 h2 {
   font-size: 50px;
   background-color: gray;
   margin: 5px;
+    width: auto;
 }
 h3 {
   font-size: 40px;
   background-color: gray;
   margin: 5px;
+    width: auto;
 }
 
 
@@ -122,6 +125,7 @@ object-fit: cover;
 p  {
   font-size: 30px;
   margin: 5px;
+    width: auto;
 }
 
 li {
