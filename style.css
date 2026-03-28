@@ -347,4 +347,13 @@ text-align: center;
   .Raschet>button {
     width: 50%;
   }
+
+    .Raschet>button {
+    width: 50%;
+    font-size: 20px;
+  }
+
+  .menu>button {
+    font-size: 10px;
+  }
 }
