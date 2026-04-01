@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8"
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Солнечный Помощник</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="icon" type="image/png" href="icon.png">
+  </head>
+  <body>
+
+<div class="menu">
+
+  <button type="button" name="button" class="solarh" onclick="solarhhopen()">Солнечный Помощник</button>
+  <button type="button" name="button" class="updatel" onclick="updlogopen()">Update Log</button>
+  <button type="button" name="button" class="ozenka" onclick="ozenkopen()">Отзывы и предложения</button>
+  <button type="button" name="button" class="proekt" onclick="proektopen()">О проекте</button>
+</div>
+
+<div class="solarhh" id="solarhh">
+
+  <h1>Солнечный Помощник</h1>
+  <img src="solar1.webp" alt="Солнечная Энергия">
+  <div class="Opisation">
+    <h2>Описание</h2>
+
+
+
+
+
+
+    <p>Привет! Данный помощник поможет вам определиться с выбором домашней солнечной электростанции для вашего дома! Всё что вам нужно это ответить на несколько  вопросов и ввести несколько числовых данные о своем доме!</p>
+  </div>
+
+
+   <h3>После прохождения вы сразу получаете:</h3>
+  <ul>
+    <li>Полезные рекомендации по выбору и установке домашней СЭС.</li>
+    <li>Подобранный комплект компонентов для вашей персональной домашней СЭС.</li>
+    <li>Рассчитанная экономическая эффективность для вашей персональной домашней СЭС.</li>
+    <ul>
+      <li>Цена</li>
+      <li>Окупаемость</li>
+      <li>Выгода</li>
+    </ul>
+    <li>Техничские Параметры</li>
+    <ul>
+      <li>Мощность СЭС</li>
+      <li>Тип СЭС</li>
+    </ul>
+    <li>Рассчитанная экологическая эффективность для вашей персональной домашней СЭС.</li>
+    <ul>
+      <li>Предотвращенные выбросы в год.</li>
+      <li>Спасенные деревья.</li>
+    </ul>
+    <li>Краткий вывод по целеобразности установки.</li>
+  </ul>
+  <p>Самое главное что вы получаете не просто хорошие пути но и риски а также рекомендации как их избежать.</p>
+
+
+  <div class="Start">
+    <button class="StartButton" onclick="openPopup()">Перейти к подбору СЭС</button>
+  </div>
+
+
+  <div id="popupOverlay" class="popup-overlay" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closePopup()">✖</button>
+
+
+
+      <div id="formBlock">
+        <div class="Obshak">
+          <div class="Obshak1">
+
+            <div class="regionV">
+              <p>Регион</p>
+              <select id="region">
+                <option value="msk">Москва</option>
+                <option value="msko">Московская область</option>
+                <option value="kro">Краснодарский край</option>
+                <option value="sbp">Санкт-Петербург</option>
+                <option value="svo">Свердловская область</option>
+                <option value="ro">Ростовская область</option>
+                <option value="rt">Республика Татарстан</option>
+                <option value="rb">Республика Башкортостан</option>
+                <option value="cho">Челябинская область</option>
+                <option value="sao">Самарская область</option>
+              </select>
+            </div>
+
+            <div class="typeH">
+              <p>Тип жилья</p>
+              <label class="radio-label">
+                <input type="radio" name="houseType" value="private"> Частный дом
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="houseType" value="apartment"> Квартира
+              </label>
+            </div>
+
+            <div class="Goal">
+              <p>Цель</p>
+              <label class="radio-label">
+                <input type="radio" name="goall" value="eco"> Экономия
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="goall" value="chast"> Частичная независимость
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="goall" value="poln"> Полная независимость
+              </label>
+            </div>
+
+            <div class="Self">
+              <p>Самостоятельная Сборка</p>
+              <label class="radio-label">
+                <input type="radio" name="SelfY" value="yes"> Да
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="SelfY" value="no"> Нет
+              </label>
+            </div>
+
+            <div class="E">
+              <input type="number" id="E" placeholder="Потребление в день (кВт·ч)">
+            </div>
+            <div class="S">
+              <input type="number" id="S" placeholder="Свободная Площадь (м²)">
+            </div>
+
+            <div class="Raschet">
+              <button class="raschetgo" onclick="Go()">Рассчитать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Блок с результатами (скрыт изначально) -->
+      <div id="resultBlock" style="display: none;">
+        <h3>📊 Результаты расчёта</h3>
+        <div id="Answer"></div>
+        <button class="btn" onclick="closePopup()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="updatell" id="updatell">
+  <h1>Update Log</h1>
+  <img src="updatelog.jpg" alt="Солнечная Энергия">
+  <div class="update">
+    <ul>
+        <li>🔷v1.1 - 28.03.2026</li>
+      <ul>
+        <li>Адаптативность под мобильные устройства</li>
+        <li>Исправлено отображение изображений во всех вкладках</li>
+        <li>Добавлено пояснение для отсутсвующих компонентов</li>
+      </ul>
+      <li>🔷v1.0 - 27.03.2026</li>
+      <ul>
+        <li>Описание</li>
+        <li>Тест</li>
+        <li>Рекомендации</li>
+        <li>Подбор комплекта</li>
+        <li>Расчет Технических Параметров</li>
+        <li>Расчет Экономической эффективности</li>
+        <li>Расчет Экологической Эффективности</li>
+        <li>Краткий вывод по целесообразности установки</li>
+        <li>Update Log</li>
+        <li>Вкладка "о проекте"</li>
+
+
+
+      </ul>
+    </ul>
+  </div>
+</div>
+
+
+<div class="ozenkk" id="ozenkk">
+  <h1>Оценка</h1>
+  <img src="ozenk.jpg" alt="ozenk">
+  <h2>Оставить свою оценку можно здесь</h2>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfD_a8rjWzpbaZjifqrCz16QQJL6MpIvwhewQ-R9fvEORQj9g/viewform?usp=header" >Оценить</a>
+<h2>Оценки пользователей</h2>
+<h2>Средняя оценка: -</h2>
+<p>Здесь пока ничего нет</p>
+
+
+</div>
+
+<div class="proektt" id="proektt">
+  <h1>О проекте</h1>
+  <img src="project.webp" alt="project">
+  <h2>Индивидуальный проект "Использование солнечной энергии для домашнего электроснабжения"</h2>
+  <p>Данный сайт был сделан в ходе моего проекта "Использование солнечной энергии для домашнего электроснабжения" </p>
+   <p>Данный сайт я решил сделать после того как сделал  расчеты домашней СЭС для своего дома , и подумал что было бы здорово если бы каждый смог сделать это буквально за минуту.Отсюда и родилась идея продукта.</p>
+   <p>Пока этот сайт является прототипом и может совершать ошибки,однако я постоянно работаю и улучшаю его, подробнее вы можете увидеть в  <a href="#" onclick="updlogopen()">Update Log</a></p>
+
+
+   <h3>Цель проекта</h3>
+   <p>Сделать инструмент,который поможет людям перейти на домашнюю СЭС</p>
+   <h3> Зачем же людям переходить на домашнюю СЭС? </h3>
+   <p>Домашняя СЭС - не просто своя собстве6нная электростанция,это личный источник электроэнергии,который дает:</p>
+<ul>
+  <li>Экономическую эффективность</li>
+  <p>С помощью СЭС можно покрыть до 100% расходов на электроэнергию,а также даже зарабатывать с нее реальные деньги с помощью программы "Зеленый тариф".</p>
+  <li>Экологическую эффективность</li>
+  <p>Каждая домашняя СЭС - пазл системы,которая предотвращает часть ежедневных и ежегодных выбросов CO2 в атмосферу.</p>
+</ul>
+
+<h2>Разработчик</h2>
+<p>Панов Я.А., ученик 10 класса,школы №58 города Камышлов</p>
+<p>email: yaroslavpanov19@gmail.com</p>
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+  function solarhhopen() {
+    let solar = document.getElementById("solarhh");
+    let updlog = document.getElementById("updatell");
+    let ozenk = document.getElementById("ozenkk");
+    let proekt = document.getElementById("proektt");
+    solar.style.display = "block";
+    updlog.style.display = "none";
+    ozenk.style.display = "none";
+    proekt.style.display = "none";
+  }
+
+  function updlogopen() {
+    let solar = document.getElementById("solarhh");
+    let updlog = document.getElementById("updatell");
+    let ozenk = document.getElementById("ozenkk");
+    let proekt = document.getElementById("proektt");
+    solar.style.display = "none";
+    updlog.style.display = "block";
+    ozenk.style.display = "none";
+    proekt.style.display = "none";
+  }
+
+  function ozenkopen() {
+    let solar = document.getElementById("solarhh");
+    let updlog = document.getElementById("updatell");
+    let ozenk = document.getElementById("ozenkk");
+    let proekt = document.getElementById("proektt");
+    solar.style.display = "none";
+    updlog.style.display = "none";
+    ozenk.style.display = "block";
+    proekt.style.display = "none";
+  }
+
+  function proektopen() {
+    let solar = document.getElementById("solarhh");
+    let updlog = document.getElementById("updatell");
+    let ozenk = document.getElementById("ozenkk");
+    let proekt = document.getElementById("proektt");
+    solar.style.display = "none";
+    updlog.style.display = "none";
+    ozenk.style.display = "none";
+    proekt.style.display = "block";
+  }
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+  function openPopup() {
+    document.getElementById("popupOverlay").style.display = "flex";
+    document.getElementById("formBlock").style.display = "block";
+    document.getElementById("resultBlock").style.display = "none";
+    document.getElementById("Answer").innerHTML = ""; // очищаем старые результаты
+}
+
+
+function closePopup() {
+  document.getElementById("popupOverlay").style.display = "none";
+}
+</script>
+<script>
+function Vibor() {
+    let block = document.getElementById("ViborTestBlock");
+    if (block.style.display === "none") {
+        block.style.display = "block";
+    } else {
+        block.style.display = "none";
+    }
+}
+</script>
+<script type="text/javascript">
+function Test() {
+  let baza = document.getElementById("formBlock");
+  if (baza.style.display == "none") {
+    baza.style.display = "block";
+  } else {
+    baza.style.display = "none";
+  }
+}
+</script>
+
+<script type="text/javascript">
+function Go() {
+  let block = document.getElementById("Answer");
+  if (block.style.display === "none") {
+      block.style.display = "block";
+  }
+
+
+  let houseRadio = document.querySelector(`input[name ="houseType"]:checked`);
+  let houseType = ""
+
+  if (houseRadio) {
+     houseType = houseRadio.value;
+    console.log(houseType);
+  } else {
+    alert("Выберите ваш тип жилья");
+    return;
+  }
+
+ let typeA = ""
+
+  if (houseType == "private") {
+    typeA = "Для вас ограничений нету";
+    console.log(typeA);
+  } else  {
+    typeA = "Мы можете установить только мини-СЭС либо договориться с руководством дома об установке панелей на крыше дома.";
+      console.log(typeA);
+  }
+
+  let goalRadio = document.querySelector(`input[name ="goall"]:checked`);
+  let goalType = ""
+    if (goalRadio) {
+     goalType = goalRadio.value;
+    console.log(houseType);
+  } else {
+    alert("Выберете цель");
+    return;
+  }
+
+  let typeB = ""
+  let sesType = ""
+
+  if (goalType == "eco") {
+    typeB = "Сетевая СЭС";
+    sesType = "set";
+  } else if (goalType == "chast") {
+    typeB = "Гибридная СЭС";
+    sesType = "gibrid";
+  } else if (goalType == "poln") {
+    typeB = "Автономная СЭС";
+    sesType = "avto";
+  }
+
+  let selfRadio = document.querySelector(`input[name ="SelfY"]:checked`);
+  let selfType = ""
+    if (selfRadio) {
+    selfType = selfRadio.value;
+  } else {
+    alert("Выберете самостоятельность сборки")
+    return;
+  }
+
+  let typeC = ""
+
+  if (selfType == "yes") {
+    typeC = "Хорошее решение для экономии,но следует учесть все риски при сборке,если не разбираетесь в электрике лучше доверить сборку специалистам";
+  } else {
+    typeC = "Хороший и безопасный выбор,обратитесь в специализирующуюся кампанию";
+  }
+
+
+
+  //// Komplect ////
+////DATA//
+   const inventorData = {
+     cet1: { model: "SOFAR3000KTL2-G3", m: 3, price:53200},
+    // cet2: { model: "DEYE SUN-3.6K-GO5P1-EU-AM2", m: 3.6 , price:56080},
+     cet2: { model: "MUST PH5900 5000M", m: 5, price:40800},
+//     cet4: { model: "DEYE SUN-6K-GO5P1-EU-AM2", m: 6, price:66640},
+     cet3: { model: "SOFAR 10KTLM-G3", m: 10, price:124160},
+
+
+     auto1: { model: "EVEPER IP500=12", m: 0.5, price:10400},
+     auto2: { model: "EPEVER IP3000-12-PLUS", m: 3, price:50400},
+
+
+
+     gibrid1: { model: "MUST PV18-1012 VPM II" , m: 1 , price:18960},
+  //   gibrid12: { model: "MUST PV18-3224 VPM II" , m: 3.2 , price:18960},
+     gibrid2: { model: "MUST PV18-4024 PRO II" , m: 4 , price:46960},
+     gibrid3: { model: "MUST PV18-3224 VPM II" , m: 6 , price:56000},
+//     gibrid11: { model: "MUST PV18-6048 PRO II" , m: 4 , price:56000},
+     gibrid4: { model: "MUST PV18-10048 VPM II" , m: 10 , price:83200},
+
+   };
+
+    const akkumData = {
+      akkym1: { model: "SILAsolution LFP24-100", v:100 , price:52000},
+    };
+
+    const kontrlData = {
+      contrl1: { model: "Eveper Tracer 6415AN 60A", i:60, price:31600},
+    };
+
+
+
+    let regionData = {
+      msk: { insolation: 2780, tarif: 7.35},
+      msko: { insolation: 2710, tarif: 7.38},
+      kro: { insolation: 3820, tarif: 7.35},
+      sbp: { insolation: 2490, tarif: 7.5},
+      svo: { insolation: 2960, tarif: 6.5},
+      ro: { insolation: 3640, tarif: 5.5},
+      rt: { insolation: 3070, tarif: 5.5},
+      rb: { insolation: 3210, tarif: 5.1},
+      cho: { insolation: 3350, tarif: 5},
+      sao: { insolation: 3180, tarif: 6.25},
+    };
+
+    let regionK = document.getElementById("region").value;
+    let regioData = regionData[regionK];
+
+    let insolation = regioData.insolation;
+    let tarif = regioData.tarif;
+
+    console.log("region =", regionK);
+    console.log("insolatin =", insolation);
+    console.log("tarif =", tarif);
+
+
+
+  let energy = Number(document.getElementById("E").value);
+  let prosh = Number(document.getElementById("S").value);
+
+  console.log(S);
+
+  let hours = (insolation/1000);
+  let kpd = 0.8;
+
+  if (energy <= 0  || prosh <= 0) {
+    alert(`Укажите корректные значения`);
+    return;
+  }
+
+  if (energy >= 500  || prosh >= 1000) {
+    alert(`Укажите корректные значения`);
+    return;
+  }
+
+  let panel1power = 0.45;
+  let panel1S = 2;
+  let panel1price = 11880;
+
+  let realE = Math.round(energy*1.20);
+
+  //E = PNTn//
+
+  console.log("t*n*Pn1 =", hours*kpd*panel1power);
+    let universal = (hours*kpd*panel1power).toFixed(2);
+   let recommendedPanel = Math.ceil(realE/universal);
+
+   console.log("panels =", recommendedPanel);
+   let maxParea = Math.floor(prosh/panel1S);
+   if (recommendedPanel > maxParea) {
+      recommendedPanel = maxParea;
+     console.log("Не хватает места уменьшено до",recommendedPanel );
+     console.log(recommendedPanel);
+   } else {
+        console.log("Достаточно места");
+     }
+
+   let sesPower = (recommendedPanel*panel1power).toFixed(2);
+   console.log("sesPower =", sesPower);
+   let kolvoInven = 0;
+  // if (kolvoInven < 1) {
+    // kolvoInven = "";
+//   } else {
+  //   if (sesType == avto) {
+  //     kolvoInven = Math.ceil(sesPower/3);
+    // } else {
+
+    //   kolvoInven = Math.ceil(sesPower/10);
+  //   }
+  // }
+
+  if (sesType == "avto") {
+    kolvoInven = Math.ceil(sesPower/3);
+  } else {
+    kolvoInven = Math.ceil(sesPower/10);
+  }
+
+
+
+
+   //VIBOR COMP//
+   let viborInventor = ""
+
+   if (sesType == "set") {
+     if (sesPower > 3) {
+       if (sesPower > 5) {
+         if (sesPower > 10) {
+           viborInventor = inventorData.cet3;
+           console.log("Ncet3");
+         } else {
+           viborInventor = inventorData.cet3;
+           console.log("cet3");
+         }
+
+       } else {
+         viborInventor = inventorData.cet2;
+         console.log("cet2");
+       }
+     } else {
+       viborInventor = inventorData.cet1;
+       console.log("cet1");
+     }
+   }
+
+   if (sesType == "avto") {
+     if (sesPower > 0.5) {
+       if (sesPower > 3) {
+         viborInventor = inventorData.auto2;
+         console.log("auto2");
+       } else {
+         viborInventor = inventorData.auto2;
+         console.log("auto2");
+       }
+     } else {
+       viborInventor = inventorData.auto1;
+       console.log("auto1");
+     }
+   }
+
+
+    if (sesType == "gibrid") {
+      if (sesPower >  1) {
+        if (sesPower > 4) {
+          if (sesPower > 6) {
+            if (sesPower > 10) {
+              viborInventor = inventorData.gibrid4;
+            } else {
+              viborInventor = inventorData.gibrid4;
+            }
+          } else {
+            viborInventor = inventorData.gibrid3;
+          }
+        } else {
+          viborInventor = inventorData.gibrid2;
+        }
+      } else {
+        viborInventor = inventorData.gibrid1;
+      }
+    }
+
+
+    let viborInventor1 = viborInventor.model;
+    ////akkym//
+    let viborAkkym = ""
+    let viborAkkym1 = ""
+    let akkymprice1 = viborAkkym.price;
+
+      if (sesType == "set") {
+        viborAkkym1 = "Не нужен";
+        akkymprice1 = 0;
+      } else {
+          viborAkkym1 = akkumData.akkym1.model;
+        viborAkkym = akkumData.akkym1;
+      }
+
+
+
+      console.log(viborAkkym1);
+    ///kontrl//
+    let viborKontrl = ""
+    let viborKontrl1 = ""
+    let kontrkprice1 = viborKontrl.price;
+
+    if (sesType == "avto") {
+          viborKontrl1 = kontrlData.contrl1.model;
+      viborKontrl = kontrlData.contrl1;
+    } else {
+      viborKontrl1 = "Не нужен";
+      kontrkprice1 = 0;
+
+    }
+
+
+
+    console.log(viborKontrl1);
+
+
+
+
+
+
+
+
+    if (sesType == "set") {
+
+    }
+
+
+
+   let panelprice = (recommendedPanel*panel1price);
+   let inventorprice = viborInventor.price * kolvoInven;
+   console.log("invprice =", inventorprice);
+   let akkumprice = viborAkkym.price;
+   let kontrlprice = viborKontrl.price;
+   let dostavkaprice = 0;
+   let sborkaprice = 0;
+
+   let predprice = (panelprice+inventorprice+akkumprice+kontrlprice);
+
+
+   if (sesType == "set") {
+     predprice = (panelprice+inventorprice);
+   } else if (sesType == "avto") {
+     predprice = (panelprice+inventorprice+akkumprice+kontrlprice);
+   } else if (sesType == "gibrid") {
+     predprice = (panelprice+inventorprice+akkumprice);
+   }
+console.log("predprice =", predprice);
+
+   let price = (predprice+dostavkaprice+sborkaprice);
+
+   let yearE = (energy*365);
+
+   let vigod = (yearE*tarif);
+
+
+    let okkyp = (price/vigod).toFixed(1);
+
+   if (kolvoInven == 1) {
+     kolvoInven = "";
+   }
+
+
+//ECO//
+
+    let w = Math.round(recommendedPanel*panel1power*365);
+   let wd = Math.round(w/20);
+
+
+
+
+
+
+//instruction//
+
+//1)
+//2)
+//3)
+
+
+
+
+//vivod//
+  let vivod = ""
+    if (okkyp <= 10) {
+      vivod = "Установка целесообразна";
+    } else {
+      vivod = "Установка не целесообразна";
+    }
+
+
+
+
+
+document.getElementById("Answer").innerHTML = `
+  <h3>Рекомендации</h3>
+    <h4>По Типу Жилья:</h4>
+    <h4> ${typeA}</h4>
+    <h4>По Самостоятельной Сборке:</h4>
+    <h4> ${typeC}</h4>
+  <h3>Комплект</h3>
+    <h4>Солнечные Панели: ${recommendedPanel} SilaSolar 450Вт</h4>
+    <h4>Инвентор: ${kolvoInven} ${viborInventor1}</h4>
+    <h4>Аккумулятор: ${viborAkkym1}</h4>
+    <h4>Контроллер Заряда: ${viborKontrl1}</h4>
+  <h3>Технические Параметры</h3>
+    <h4>Тип: ${typeB}</h4>
+    <h4>Мощность СЭС: ${sesPower} кВт</h4>
+  <h3>Экономическая Эффективность</h3>
+    <h4>Цена: ${price} руб</h4>
+    <h4>Окупаемость: ${okkyp} лет</h4>
+    <h4>Выгода: ${vigod} руб в год</h4>
+  <h3>Экологическая Эффективность</h3>
+    <h4>Предотвращенные Выбросы В Год: ${w} кг CO2</h4>
+    <h4>Спасенные Деревья в год: ${wd}</h4>
+  <h3>Вывод</h3>
+    <p>${vivod}</p>;`
+
+    document.getElementById("formBlock").style.display = "none";
+       document.getElementById("resultBlock").style.display = "block";
+
+
+
+
+  }
+</script>
+
+
+
+</body>
+</html>
